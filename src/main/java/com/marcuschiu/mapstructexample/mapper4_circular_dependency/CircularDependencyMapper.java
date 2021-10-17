@@ -4,10 +4,11 @@ import com.marcuschiu.mapstructexample.mapper4_circular_dependency.models.Child;
 import com.marcuschiu.mapstructexample.mapper4_circular_dependency.models.ChildDto;
 import com.marcuschiu.mapstructexample.mapper4_circular_dependency.models.Father;
 import com.marcuschiu.mapstructexample.mapper4_circular_dependency.models.FatherDto;
+import org.mapstruct.Builder;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public interface CircularDependencyMapper {
 
     FatherDto toDto(Father father, @Context CycleAvoidingMappingContext context);
